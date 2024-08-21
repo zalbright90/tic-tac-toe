@@ -9,7 +9,14 @@ const Gameboard = (function() {
             board[index] = marker;
             return true;
         }
+        return false;
     };
+
+    const resetBoard = () => {
+        board = ["", "", "", "", "", "", "", "", ""];
+    };
+
+    return { getBoard, placeMarker, resetBoard };
 })();
 
 // Player Module
@@ -18,7 +25,7 @@ const Player = (name, marker) => {
 };
 
 // Game Controller Module
-const GameController = (function() {
+const GameController = (function(Gameboard) {
     const player1 = Player("Player 1", "ᚷ"); // Gebo Rune for player 1
     const player2 = Player("Player 2", "ᛝ"); // Ingwaz Rune for player 2
     let currentPlayer = player1;
@@ -70,4 +77,4 @@ const GameController = (function() {
         getCurrentPlayer,
         playTurn,
     };
-})();
+})(Gameboard);
