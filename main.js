@@ -13,10 +13,16 @@ const Gameboard = (function() {
 })();
 
 // Player Module
+const Player = (name, marker) => {
+    return { name, marker };
+};
 
 // Game Controller Module
-    // Gebo Rune for player 1
-    // Ingwaz Rune for player 2
+const GameController = (function() {
+    const player1 = Player("Player 1", "ᚷ"); // Gebo Rune for player 1
+    const player2 = Player("Player 2", "ᛝ"); // Ingwaz Rune for player 2
+    let currentPlayer = player1;
+});
 
     // Switch turns between players
 
