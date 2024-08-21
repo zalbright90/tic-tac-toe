@@ -42,14 +42,15 @@ const GameController = (function(Gameboard) {
     const playTurn = (index) => {
         if (Gameboard.placeMarker(index, currentPlayer.marker)) {
             if (checkWin()) {
-                console.log(`Sigurvegari! (Winner!) ${currentPlayer.name}`);
+                document.getElementById('message').textContent = `Sigurvegari! (Winner!) ${currentPlayer.name}`;
             } else if (checkTie()) {
-                console.log("JAFNTEFLI! (It's a tie game!)");
+                document.getElementById('message').textContent = "JAFNTEFLI! (It's a tie game!)";
             } else {
                 switchTurn();
+                document.getElementById('message').textContent = `${getCurrentPlayer().name}'s turn!`;
             }
         } else {
-            console.log("Invalid move. Try again.");
+            document.getElementById('message').textContent = "Invalid move. Try again.";
         }
     };
 
