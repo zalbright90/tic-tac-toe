@@ -80,9 +80,22 @@ const GameController = (function(Gameboard) {
 })(Gameboard);
 
 // Function to render the game board to the DOM
+function renderBoard() {
+    const board = Gameboard.getBoard();
+    const cells = document.querySelectorAll(".cell");
 
+    cells.forEach((cell, index) => {
+        cell.textContent = board[index];
+    });
+}
 
 // Initial render of the game board
-
+renderBoard();
 
 // Event listeners for player moves
+document.querySelectorAll('.cell').forEach(cell => {
+    cell.addEventListener('click', (e) => {
+        const index = e.target.dataset.index;
+        GameController.playTurn(index);
+    });
+});
