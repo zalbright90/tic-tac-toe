@@ -78,3 +78,11 @@ const GameController = (function(Gameboard) {
         playTurn,
     };
 })(Gameboard);
+
+// Function to render the game board to the DOM
+
+
+// Initial render of the game board
+
+
+// Event listeners for player moves
