@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<h1> Runatafl </h1>
+<p>Norse inspired Tic-Tac-Toe</p>
+<div id="player-info">
+    <label for="player1-name">Player 1 Name: </label>
+    <input type="text" id="player1-name" placeholder="Enter name">
+
+    <label for="player2-name">Player 2 Name: </label>
+    <input type="text" id="player2-name" placeholder="Enter name">
+</div>
+<p>Enter player names above, and select "Start Game" to play</p>
+<button id="start-game" class="start-btn">Start Game</button>
 <div class="board" id="gameBoard">
     <div class="cell" data-index="0"></div>
     <div class="cell" data-index="1"></div>
@@ -18,6 +29,7 @@
     <div class="cell" data-index="7"></div>
     <div class="cell" data-index="8"></div>
 </div>
+<div id="game-results"></div>
 <div id="message"></div>
     <script src="main.js"></script>
 </body>

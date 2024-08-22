@@ -26,10 +26,22 @@ const Player = (name, marker) => {
 
 // Game Controller Module
 const GameController = (function(Gameboard) {
-    const player1 = Player("Player 1", '\u16B7'); // Gebo Rune for player 1
-    const player2 = Player("Player 2", '\u16DD'); // Ingwaz Rune for player 2
-    let currentPlayer = player1;
+    let player1, player2;
+    let currentPlayer;
+    let gameOver = false;
     
+    // Initialize game
+    const startGame = (player1Name, player2Name) => {
+        player1 = Player(player1Name || "Player 1", "\u16B7"); // Gebo Rune selection 
+        player2 = Player(player2Name || "Player 2", "\u16DD"); // Ingwaz Rune selection
+        currentPlayer = player1;
+        gameOver = false;
+        Gameboard.resetBoard();
+        renderBoard();
+        document.getElementById('message').textContent = `${currentPlayer.name}'s turn!`;
+        document.getElementById('game-results').textContent = '';
+    };
+
     // Switch turns between players
     const switchTurn = () => {
         currentPlayer = (currentPlayer === player1) ? player2 : player1;
@@ -40,12 +52,16 @@ const GameController = (function(Gameboard) {
 
     // Play turn
     const playTurn = (index) => {
+        if (gameOver) return;
+
         if (Gameboard.placeMarker(index, currentPlayer.marker)) {
             renderBoard();
             if (checkWin()) {
-                document.getElementById('message').textContent = `Sigurvegari! (Winner!) ${currentPlayer.name}`;
+                document.getElementById('game-results').textContent = `Sigurvegari! (Winner!) ${currentPlayer.name}`;
+                gameOver = true;
             } else if (checkTie()) {
-                document.getElementById('message').textContent = "JAFNTEFLI! (It's a tie game!)";
+                document.getElementById('game-results').textContent = "JAFNTEFLI! (It's a tie game!)";
+                gameOver = true;
             } else {
                 switchTurn();
                 document.getElementById('message').textContent = `${getCurrentPlayer().name}'s turn!`;
@@ -78,6 +94,7 @@ const GameController = (function(Gameboard) {
     return {
         getCurrentPlayer,
         playTurn,
+        startGame
     };
 })(Gameboard);
 
@@ -93,9 +110,6 @@ function renderBoard() {
     });
 }
 
-// Initial render of the game board
-renderBoard();
-
 // Event listeners for player moves
 document.querySelectorAll('.cell').forEach(cell => {
     cell.addEventListener('click', (e) => {
@@ -103,3 +117,13 @@ document.querySelectorAll('.cell').forEach(cell => {
         GameController.playTurn(index);
     });
 });
+
+// Start/Restart game
+document.getElementById('start-game').addEventListener('click', function() {
+    const player1Name = document.getElementById('player1-name').value;
+    const player2Name = document.getElementById('player2-name').value;
+    GameController.startGame(player1Name, player2Name);
+});
+
+// Initial render of the game board
+renderBoard();

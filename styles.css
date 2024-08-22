@@ -4,8 +4,58 @@
 }
 
 body {
-    background-color:#e0bb2a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:#f0f0f0;
     font-family: "Norse", sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+p {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+#player-info {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#player-info label {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+#player-info input {
+    padding: 5px;
+    font-size: 1rem;
+    margin-right: 15px;
+    border: 2px solid #ccc;
+    width: 150px;
+    border-radius: 9px;
+}
+
+.start-btn {
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.start-btn:hover {
+    background-color: #218838;
 }
 
 .board {
@@ -19,7 +69,7 @@ body {
     border-radius: 15px;
     box-shadow: inset 0 0 10px #2c2419, 0 0 20px rgba(0, 0, 0, 0.8);
     max-width: 325px;
-    margin: 0 auto;
+    margin-top: 20px;
 }
 
 .cell {
@@ -44,7 +94,7 @@ body {
     color: #471e1e;
 }
 
-#message {
+#message, #game-results {
     margin-top: 20px;
     text-align: center;
     font-size: 1.5rem;
