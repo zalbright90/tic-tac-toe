@@ -20,7 +20,7 @@ h1 {
 
 p {
     font-size: 24px;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 #player-info {
@@ -99,4 +99,51 @@ p {
     text-align: center;
     font-size: 1.5rem;
     color: #1e2223;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    min-width: 100vw;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-container p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-container a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-container a:hover {
+    color: #b40c0c;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #b40c0c;
 }
