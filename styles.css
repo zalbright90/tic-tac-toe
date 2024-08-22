@@ -1,15 +1,52 @@
+@font-face {
+    font-family: "Norse";
+    src: url(Norse-Bold.otf) format("opentype"); 
+}
+
+body {
+    background-color:#e0bb2a;
+    font-family: "Norse", sans-serif;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
-    gap: 5px;
+    gap: 10px;
+    background-color: rgba(208, 144, 36, 0.5);
+    background-image: url(natural-wooden-background.png);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px #2c2419, 0 0 20px rgba(0, 0, 0, 0.8);
+    max-width: 325px;
+    margin: 0 auto;
 }
 
 .cell {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
-    font-size: 2rem;
+    background-color: #c06b0e;
+    font-size: 4rem;
+    color: #7c190a;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px #2c2419;
     cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.cell:hover {
+    background-color: #e0bb2a;
+    box-shadow: 0 0 10px rgba (0, 0, 0, 0.3);
+}
+
+.cell.taken {
+    color: #471e1e;
+}
+
+#message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #1e2223;
 }

@@ -26,8 +26,8 @@ const Player = (name, marker) => {
 
 // Game Controller Module
 const GameController = (function(Gameboard) {
-    const player1 = Player("Player 1", "ᚷ"); // Gebo Rune for player 1
-    const player2 = Player("Player 2", "ᛝ"); // Ingwaz Rune for player 2
+    const player1 = Player("Player 1", '\u16B7'); // Gebo Rune for player 1
+    const player2 = Player("Player 2", '\u16DD'); // Ingwaz Rune for player 2
     let currentPlayer = player1;
     
     // Switch turns between players
@@ -41,6 +41,7 @@ const GameController = (function(Gameboard) {
     // Play turn
     const playTurn = (index) => {
         if (Gameboard.placeMarker(index, currentPlayer.marker)) {
+            renderBoard();
             if (checkWin()) {
                 document.getElementById('message').textContent = `Sigurvegari! (Winner!) ${currentPlayer.name}`;
             } else if (checkTie()) {
@@ -82,11 +83,13 @@ const GameController = (function(Gameboard) {
 
 // Function to render the game board to the DOM
 function renderBoard() {
-    const board = Gameboard.getBoard();
-    const cells = document.querySelectorAll(".cell");
-
-    cells.forEach((cell, index) => {
-        cell.textContent = board[index];
+    document.querySelectorAll('.cell').forEach((cell, index) => {
+        cell.textContent = Gameboard.getBoard()[index];
+        if (Gameboard.getBoard()[index] !== '') {
+            cell.classList.add('taken');
+        } else {
+            cell.classList.remove('taken');
+        }
     });
 }
 
