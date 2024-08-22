@@ -53,10 +53,12 @@ p {
     border-radius: 9px;
     cursor: pointer;
     margin: 10px;
+    box-shadow: inset 0 0 10px #2c2419, 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .start-btn:hover {
     background-color: #218838;
+    box-shadow: inset 0 0 10px #2c2419, 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .board {
