@@ -20,7 +20,8 @@ h1 {
 
 p {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin: 20px 20px;
+    text-align: center;
 }
 
 #player-info {
@@ -146,4 +147,65 @@ footer {
 
 .social-icons a:hover {
     color: #b40c0c;
+}
+
+@media (max-width: 768px) {
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        gap: 8px;
+        padding: 15px;
+        max-width: 265px;
+    }
+
+    .cell {
+        font-size: 3rem;
+    }
+
+    #player-info input {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .board {
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: repeat(3, 60px);
+        gap: 5px;
+        padding: 10px;
+        max-width: 205px;
+    }
+
+    .cell {
+        font-size: 2rem;
+    }
+
+    #player-info input {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .start-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    #message, #game-results {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer .social-icons {
+        margin-top: 10px;
+    }
+
+    .footer a {
+        margin: 0 5px;
+    }
 }
