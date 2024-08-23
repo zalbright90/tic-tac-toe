@@ -94,11 +94,11 @@ p {
 }
 
 .cell.taken {
-    color: #471e1e;
+    color: #490d0d;
 }
 
 #message, #game-results {
-    margin-top: 20px;
+    margin: 20px 0;
     text-align: center;
     font-size: 1.5rem;
     color: #1e2223;

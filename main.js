@@ -57,7 +57,7 @@ const GameController = (function(Gameboard) {
         if (Gameboard.placeMarker(index, currentPlayer.marker)) {
             renderBoard();
             if (checkWin()) {
-                document.getElementById('game-results').textContent = `Sigurvegari! (Winner!) ${currentPlayer.name}`;
+                document.getElementById('game-results').textContent = `Sigurvegari! (Winner!) ${currentPlayer.name}!`;
                 gameOver = true;
             } else if (checkTie()) {
                 document.getElementById('game-results').textContent = "JAFNTEFLI! (It's a tie game!)";
